@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Harp</title>
+  <style>
+    * {
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="module">
+    import './index.js';
+  </script>
+  <script>
+    const canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+
+    const scale = [true, false, true, false, true, true, false, true, false, true, false, true];
+
+    function redraw() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      ctx.fillStyle = 'black';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i <= 24; i++) {
+        ctx.fillStyle = scale[i % 12] ? 'cyan' : 'blue';
+        ctx.fillRect(262 * Math.pow(2, i / 12), 0, 2, canvas.height);
+      }
+    }
+
+    redraw();
+    window.addEventListener('resize', redraw);
+  </script>
+</body>
+
+</html>
