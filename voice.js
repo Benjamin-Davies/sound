@@ -16,14 +16,14 @@ export class Voice {
   }
 
   /**
-   * @param {number} startTime
+   * @param {number} [startTime]
    */
   attack(startTime) {
     this.envelope.attack(startTime);
   }
 
   /**
-   * @param {number} startTime
+   * @param {number} [startTime]
    */
   release(startTime) {
     this.envelope.release(startTime);

@@ -14,7 +14,7 @@ export class Envelope {
   }
 
   /**
-   * @param {number} startTime
+   * @param {number} [startTime]
    */
   attack(startTime = this.ctx.currentTime) {
     this.gain.gain.cancelScheduledValues(startTime);
@@ -27,7 +27,7 @@ export class Envelope {
   }
 
   /**
-   * @param {number} startTime
+   * @param {number} [startTime]
    */
   release(startTime = this.ctx.currentTime) {
     this.gain.gain.cancelScheduledValues(startTime);
